@@ -1,5 +1,54 @@
 # Getting Started with Create React App
 
+## Folder Structure
+
+```
+frontend-intern-task/
+├── package.json
+├── README.md
+├── tailwind.config.js
+├── build/
+│   ├── asset-manifest.json
+│   ├── index.html
+│   ├── manifest.json
+│   ├── robots.txt
+│   └── static/
+│       ├── css/
+│       │   └── main.2a956554.css
+│       └── js/
+│           ├── main.85134655.js
+│           └── main.85134655.js.LICENSE.txt
+├── public/
+│   ├── index.html
+│   ├── manifest.json
+│   └── robots.txt
+└── src/
+	├── App.css
+	├── App.js
+	├── App.test.js
+	├── index.css
+	├── index.js
+	├── reportWebVitals.js
+	├── setupTests.js
+	├── api/
+	│   └── productsApis.js
+	├── components/
+	│   ├── Header.jsx
+	│   ├── Loading.jsx
+	│   └── ProductCard.jsx
+	├── hooks/
+	│   └── useLocalCache.js
+	├── pages/
+	│   ├── Cart.jsx
+	│   ├── Checkout.jsx
+	│   ├── Home.jsx
+	│   └── Product.jsx
+	└── store/
+		├── cartSlice.js
+		├── index.js
+		└── productSlice.js
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

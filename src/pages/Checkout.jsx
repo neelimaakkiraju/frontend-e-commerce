@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { clearCart } from '../store/cartSlice';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Checkout() {
   const items = useSelector(s => s.cart.items);
@@ -33,9 +33,12 @@ export default function Checkout() {
     return <div className="text-center py-16 text-lg text-gray-500 animate-fade-in">Your cart is empty</div>;
 
   return (
-    <div className="max-w-2xl mx-auto animate-fade-in-up">
-      <h3 className="text-2xl font-bold mb-6 text-gray-800">Checkout</h3>
-      <div className="bg-white rounded-lg shadow p-6 mb-8">
+    <div className="max-w-3xl mx-auto animate-fade-in-up space-y-6">
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="text-2xl font-bold text-gray-800">Checkout</h3>
+        <Link to="/cart" className="text-sm text-pink-700 hover:underline font-semibold">← Back to cart</Link>
+      </div>
+      <div className="bg-white rounded-xl shadow p-6 border border-gray-100 mb-2">
         <h4 className="text-lg font-semibold mb-3 text-gray-700">Order Summary</h4>
         <div className="divide-y divide-gray-100 mb-3">
           {items.map(it => (
@@ -48,7 +51,7 @@ export default function Checkout() {
         <div className="text-right text-lg font-bold text-gray-800">Total: ₹{total}</div>
       </div>
 
-      <div className="bg-white rounded-lg shadow p-6">
+      <div className="bg-white rounded-xl shadow p-6 border border-gray-100">
         <h4 className="text-lg font-semibold mb-3 text-gray-700">Shipping</h4>
         {error && <div className="mb-3 text-red-600 font-medium animate-fade-in">{error}</div>}
         <div className="space-y-4">
@@ -63,6 +66,7 @@ export default function Checkout() {
             value={form.email}
             onChange={e => setForm(prev => ({ ...prev, email: e.target.value }))}
             className="w-full px-4 py-2 rounded border border-gray-300 focus:ring-2 focus:ring-pink-400 focus:border-pink-400 transition-all"
+            type="email"
           />
           <textarea
             placeholder="Address"
@@ -74,7 +78,7 @@ export default function Checkout() {
         <div className="mt-6 text-right">
           <button
             onClick={handlePlace}
-            className="px-6 py-2 rounded-lg bg-pink-600 text-white font-semibold shadow hover:bg-pink-700 transition-colors text-lg"
+            className="px-6 py-2 rounded-lg bg-gradient-to-r from-pink-600 to-indigo-500 text-white font-semibold shadow hover:opacity-90 transition-opacity text-lg"
           >
             Place Order
           </button>
